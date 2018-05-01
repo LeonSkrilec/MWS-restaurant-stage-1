@@ -57,7 +57,10 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  const imageName = DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = imageName + ".jpg";
+  image.srcset = imageName + "@2x.jpg 2x";
+  image.alt = "";
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -117,17 +120,25 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+
+  const meta = document.createElement("div");
+  meta.className = "review-meta";
+  li.appendChild(meta);
+
   const name = document.createElement('p');
+  name.className = "review-author";
   name.innerHTML = review.name;
-  li.appendChild(name);
+  meta.appendChild(name);
 
   const date = document.createElement('p');
+  date.className = "review-date";
   date.innerHTML = review.date;
-  li.appendChild(date);
+  meta.appendChild(date);
 
   const rating = document.createElement('p');
+  rating.className = "review-rating";
   rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  meta.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
@@ -139,7 +150,7 @@ createReviewHTML = (review) => {
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
