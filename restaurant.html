@@ -26,9 +26,11 @@
     </div>
     <!-- Beginning breadcrumb -->
     <div class="breadcrumbs-wrap">
-      <nav id="breadcrumb" aria-label="Breadcrumb" >
-        <li><a href="/">Home</a></li>
-      </ul>
+      <nav id="breadcrumb" aria-label="Breadcrumb">
+        <ul id="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
     </div>
     
     <!-- End breadcrumb -->
@@ -42,7 +44,7 @@
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
       <div class="restaurant-title">
-        <h1 id="restaurant-name"></h1>
+        <h2 id="restaurant-name"></h2>
         <p id="restaurant-cuisine"></p>      
       </div>
       <div class="restaurant-image">
@@ -55,7 +57,7 @@
     </section>
 
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application"></div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->

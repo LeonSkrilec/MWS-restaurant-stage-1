@@ -9,6 +9,16 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
+    const url = new URL(event.request.url);
+
+    if (url.pathname.startsWith('/restaurant.html')) {
+        event.respondWith(
+            caches.match('restaurant.html')
+            .then(response => response || fetch(event.request))
+        );
+        return;
+    }
+
     event.respondWith(
         caches.open('restaurants-app').then(function (cache) {
             return cache.match(event.request).then(function (response) {

@@ -143,10 +143,14 @@ header {
   margin: 0;
 }
 
+#breadcrumb ul {
+  margin: 0;
+}
+
 /* Display list items side by side */
 
 #breadcrumb li {
-  display: inline;
+  display: inline-block;
   line-height: 1.2;
 }
 
@@ -273,7 +277,7 @@ header {
   color: #dc3545 !important;
 }
 
-#restaurants-list li h1 {
+#restaurants-list li h2 {
   color: #f18200;
   font-family: Arial, sans-serif;
   font-size: 14pt;
@@ -380,7 +384,7 @@ header {
   margin: 0 auto;
 }
 
-#reviews-container h2 {
+#reviews-container h3 {
   color: #f58500;
   font-size: 2em;
   font-weight: 300;
